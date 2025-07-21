@@ -23,6 +23,9 @@ def ContarCadena(cadena):
     if cadena=="":
         return 0
     else:
+        return 1+ContarCadena(cadena[1:])
+
+
 
  def menu():
      opcion=0
@@ -44,3 +47,13 @@ def ContarCadena(cadena):
              print("Suma de numeros de 1 hasta n")
              n=int(input("Ingrese el numero que desea sumar"))
              print(Suma(n))
+         elif opcion==3:
+             print("Fibonacci")
+             n=int(input("Ingrese la posicion de la secuencia fibonacci"))
+             resultado=fibonacci(n)
+             print(f"Fibonacci({n})= {resultado}")
+         elif opcion==4:
+             print("Contar letras")
+             cadena=input("Ingrese una cadena de letras: ")
+             resultado=ContarCadena(cadena)
+             print(f"La cadena tiene la cantidad de letras: {resultado} ")
