@@ -19,12 +19,19 @@ def fibonacci(n):
     else:
         return fibonacci(n-1)+fibonacci(n-2)
 
-def ContarCadena(cadena):
-    if cadena=="":
+def Contar_Letras(palabra,letra):
+    if palabra=="":
         return 0
+    if palabra[0]==letra:
+        return 1+Contar_Letras(palabra[1:], letra)
     else:
-        return 1+ContarCadena(cadena[1:])
+        return Contar_Letras(palabra[1:],letra)
 
+def InvertirCadena(cadena):
+    if cadena=="":
+        return ""
+    else:
+        return InvertirCadena(cadena[1:])+cadena[0]
 
 
  def menu():
@@ -54,6 +61,13 @@ def ContarCadena(cadena):
              print(f"Fibonacci({n})= {resultado}")
          elif opcion==4:
              print("Contar letras")
-             cadena=input("Ingrese una cadena de letras: ")
-             resultado=ContarCadena(cadena)
-             print(f"La cadena tiene la cantidad de letras: {resultado} ")
+             palabra=input("Ingrese una palabra: ")
+             letra=input("Ingrese la letra que desea contar: ")
+             print(f"En la palabra {palabra} aparece la letra: {letra} un total de : {Contar_Letras(palabra,letra)} ")
+         elif opcion==5:
+             print("Invertir texto")
+             cadena=input("Ingrese una cadena de texto: ")
+             print(f"Cadena invertida: {InvertirCadena(cadena)}")
+
+
+menu()
