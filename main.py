@@ -32,10 +32,14 @@ def InvertirCadena(cadena):
         return ""
     else:
         return InvertirCadena(cadena[1:])+cadena[0]
+def Potencia(base,exponente):
+    if exponente==0:
+        return 1
+    else:
+        return base*Potencia(base,exponente-1)
 
 
  def menu():
-     opcion=0
      while True:
          print("===Menu===")
          print("1. Factorial")
@@ -68,6 +72,16 @@ def InvertirCadena(cadena):
              print("Invertir texto")
              cadena=input("Ingrese una cadena de texto: ")
              print(f"Cadena invertida: {InvertirCadena(cadena)}")
+         elif opcion==6:
+             print("\n---Potencia---")
+             base=int(input("Ingrese la base: "))
+             exponente=int(input("Ingrese el exponente (positivo): "))
+             print(f"{base}^{exponente} = {Potencia(base,exponente)}")
+         elif opcion==7:
+             print("Saliendo del programa")
+             break
+         else:
+             print("Opcion no valida")
 
 
 menu()
